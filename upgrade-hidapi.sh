@@ -30,3 +30,6 @@ if [[ -d hidapi ]]; then
 fi
 mv $dir hidapi
 rm -Rf hidapi.orig "$archive"
+
+# Rebuild hidapi_*.h
+exec go generate

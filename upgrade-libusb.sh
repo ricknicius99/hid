@@ -28,3 +28,6 @@ if [[ -d libusb ]]; then
 fi
 mv libusb-${version} libusb
 rm -Rf libusb.orig "$archive"
+
+# Rebuild hidapi_*.h
+exec go generate

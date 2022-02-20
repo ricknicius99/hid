@@ -9,10 +9,10 @@
 
 package hid
 
-/*
-#cgo CFLAGS: -I./hidapi/hidapi
+//go:generate go run ./internal/gen.go
 
-#cgo linux CFLAGS: -I./libusb/libusb -DDEFAULT_VISIBILITY="" -DOS_LINUX -D_GNU_SOURCE -DPOLL_NFDS_TYPE=int
+/*
+#cgo linux CFLAGS: -DDEFAULT_VISIBILITY="" -DOS_LINUX -D_GNU_SOURCE -DPOLL_NFDS_TYPE=int
 #cgo linux,!android LDFLAGS: -lrt
 #cgo darwin CFLAGS: -DOS_DARWIN
 #cgo darwin LDFLAGS: -framework CoreFoundation -framework IOKit
@@ -21,24 +21,11 @@ package hid
 
 #ifdef OS_LINUX
 	#include <poll.h>
-	#include "os/threads_posix.c"
-	#include "os/poll_posix.c"
-
-	#include "os/linux_usbfs.c"
-	#include "os/linux_netlink.c"
-
-	#include "core.c"
-	#include "descriptor.c"
-	#include "hotplug.c"
-	#include "io.c"
-	#include "strerror.c"
-	#include "sync.c"
-
-	#include "hidapi/libusb/hid.c"
+	#include "hidapi_linux.h"
 #elif OS_DARWIN
-	#include "hidapi/mac/hid.c"
+	#include "hidapi_mac.h"
 #elif OS_WINDOWS
-	#include "hidapi/windows/hid.c"
+	#include "hidapi_windows.h"
 #endif
 */
 import "C"
