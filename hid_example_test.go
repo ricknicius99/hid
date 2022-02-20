@@ -3,7 +3,7 @@ package hid_test
 import (
 	"fmt"
 
-	"github.com/karalabe/hid"
+	"github.com/dolmen-go/hid"
 )
 
 func ExampleSupported() {

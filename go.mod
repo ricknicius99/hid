@@ -1,4 +1,4 @@
-module github.com/karalabe/hid
+module github.com/dolmen-go/hid
 
 go 1.17
 
